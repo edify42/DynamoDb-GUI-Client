@@ -1,7 +1,7 @@
 <template lang="pug">
   el-col(:span="24" class="main" v-loading="loading" element-loading-background="rgba(0, 0, 0, 0)")
     ConnectDatabase(
-      v-if="!currentDb"
+      v-if="special"
       :configs="database.submitForm.configs"
       :regionList="database.regionList"
       :submitForm="database.submitForm"
@@ -40,6 +40,7 @@ const namespace: string = 'database';
 export default class Main extends Vue {
   public $notify: any = this.$notify;
   private activeTab: string = 'records';
+  private special: string = process.env.AWS_PROFILE || '';
   @Getter private currentDb!: string;
   @Getter private currentTable!: string;
   @Getter private response!: { message: string; title: string; type: string };

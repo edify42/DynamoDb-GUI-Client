@@ -5,6 +5,7 @@ import DynamoDB from 'aws-sdk/clients/dynamodb';
 function initialState(state: RootState) {
   state.dbInstance = new DynamoDB();
   state.dbClient = new DynamoDB.DocumentClient();
+  state.instanceProfile = process.env.AWS_REGION ? true : false;
   state.currentTable = '';
   state.currentDb = '';
   state.tables = [];

@@ -8,6 +8,7 @@ export interface RootState {
   currentDb: string;
   dbInstance: DynamoDB;
   dbClient: DocumentClient;
+  instanceProfile: boolean;
   response: {
     title: string;
     type: string;
